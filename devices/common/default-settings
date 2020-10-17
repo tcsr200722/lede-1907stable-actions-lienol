@@ -1,91 +1,122 @@
 #!/bin/sh
-
 ln -sf /sbin/ip /usr/bin/ip
+uci set luci.main.lang=zh_cn
+uci set luci.main.mediaurlbase=/luci-static/argon
+uci commit luci
 
-sed -i '/openwrt_custom/d' /etc/opkg/distfeeds.conf
-sed -i '/openwrt_custom/d' /etc/opkg/customfeeds.conf
+uci set system.@system[0].hostname=LEDE
+uci set system.@system[0].timezone=CST-8
+uci set system.@system[0].zonename=Asia/Shanghai
+uci commit system
+
+uci set fstab.@global[0].anon_mount=1
+uci commit fstab
+
+uci set network.lan.ipaddr="192.168.168.1"
+uci set network.lan.netmask='255.255.255.0'
+uci set network.lan.dns='127.0.0.1'
+uci set network.lan.ifname="eth0"
+uci set network.wan.ifname="eth1"
+uci commit network
+
+rm -f /usr/lib/lua/luci/view/admin_status/index/mwan.htm
+rm -f /usr/lib/lua/luci/view/admin_status/index/upnp.htm
+rm -f /usr/lib/lua/luci/view/admin_status/index/ddns.htm
+rm -f /usr/lib/lua/luci/view/admin_status/index/minidlna.htm
+sed -i 's/\"services\"/\"nas\"/g' /usr/lib/lua/luci/controller/aria2.lua
+sed -i 's/services/nas/g' /usr/lib/lua/luci/view/aria2/overview_status.htm
+sed -i 's/\"services\"/\"nas\"/g' /usr/lib/lua/luci/controller/hd_idle.lua
+sed -i 's/\"services\"/\"nas\"/g' /usr/lib/lua/luci/controller/samba.lua
+sed -i 's/\"services\"/\"nas\"/g' /usr/lib/lua/luci/controller/samba4.lua
+sed -i 's/\"services\"/\"nas\"/g' /usr/lib/lua/luci/controller/minidlna.lua
+sed -i 's/\"services\"/\"nas\"/g' /usr/lib/lua/luci/controller/transmission.lua
+sed -i 's/\"services\"/\"nas\"/g' /usr/lib/lua/luci/controller/mjpg-streamer.lua
+sed -i 's/\"services\"/\"nas\"/g' /usr/lib/lua/luci/controller/p910nd.lua
+sed -i 's/\"services\"/\"nas\"/g' /usr/lib/lua/luci/controller/cupsd.lua
+sed -i 's/\"services\"/\"nas\"/g' /usr/lib/lua/luci/controller/usb_printer.lua
+sed -i 's/\"services\"/\"nas\"/g' /usr/lib/lua/luci/controller/xunlei.lua
+sed -i 's/\"services\"/\"nas\"/g' /usr/lib/lua/luci/controller/nfs.lua
+sed -i 's/\"services\"/\"nas\"/g' /usr/lib/lua/luci/controller/cifs.lua
+sed -i 's/\"services\"/\"nas\"/g' /usr/lib/lua/luci/controller/qbittorrent.lua
+sed -i 's/services/nas/g'  /usr/lib/lua/luci/view/minidlna_status.htm
+sed -i 's/\"network\"/\"services\"/g' /usr/lib/lua/luci/controller/dnspod.lua
+#sed -i 's/\"services\"/\"QOS\"/g' /usr/lib/lua/luci/controller/qosv4.lua
+sed -i 's/\"network\"/\"control\"/g' /usr/lib/lua/luci/controller/eqos.lua
+#sed -i 's/\"network\"/\"QOS\"/g' /usr/lib/lua/luci/controller/qos.lua
+#sed -i 's/\"network\"/\"QOS\"/g' /usr/lib/lua/luci/controller/sqm.lua
+#sed -i 's/\"services\"/\"QOS\"/g' /usr/lib/lua/luci/controller/nft-qos.lua
+sed -i 's/\"services\"/\"vpn\"/g' /usr/lib/lua/luci/controller/softethervpn5.lua
+sed -i 's/\"network\"/\"control\"/g' /usr/lib/lua/luci/controller/appfilter.lua
+
+
+#sed -i 's/downloads.openwrt.org/openwrt.proxy.ustclug.org/g' /etc/opkg/distfeeds.conf
 sed -i 's/downloads.openwrt.org/mirrors.cloud.tencent.com\/openwrt/g' /etc/opkg/distfeeds.conf
+sed -i 's/http/https/g' /etc/opkg/distfeeds.conf
+sed -i 's/root::0:0:99999:7:::/root:$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.:0:0:99999:7:::/g' /etc/shadow
 
-sed -i 's/http:/https:/g' /etc/opkg/distfeeds.conf
 sed -i "s/# //g" /etc/opkg/distfeeds.conf
+
+uci set dhcp.lan.ra='server'
+uci set dhcp.lan.dhcpv6='server'
+uci set dhcp.lan.ra_management='1'
+uci set dhcp.lan.ra_default='1'
+uci commit dhcp
+
+sed -i '/REDIRECT --to-ports 53/d' /etc/firewall.user
+echo "#iptables -t nat -A PREROUTING -p udp --dport 53 -j REDIRECT --to-ports 5333" >> /etc/firewall.user
+echo "#iptables -t nat -A PREROUTING -p tcp --dport 53 -j REDIRECT --to-ports 5333" >> /etc/firewall.user
+
+sed -i '/option disabled/d' /etc/config/wireless
+sed -i '/set wireless.radio${devidx}.disabled/d' /lib/wifi/mac80211.sh
+
+#sed -i '/DISTRIB_REVISION/d' /etc/openwrt_release
+#echo "DISTRIB_REVISION='N20.6.29 From Lienol'" >> /etc/openwrt_release
+#sed -i '/DISTRIB_DESCRIPTION/d' /etc/openwrt_release
+#echo "DISTRIB_DESCRIPTION='OpenWrt '" >> /etc/openwrt_release
+
+sed -i '/+kmod-crypto-arc4/d' package/lean/ksmbd/Makefile
+
 sed -i '/log-facility/d' /etc/dnsmasq.conf
 echo "log-facility=/dev/null" >> /etc/dnsmasq.conf
 
-sed -i '/profile.d/d' /lib/upgrade/keep.d/base-files
-sed -i 's/\[ -e "$FILE" \] && . "$FILE"/[ -e "$FILE" ] \&\& env -i bash "$FILE"/g' /etc/profile
+sed -i 's/cbi.submit\"] = true/cbi.submit\"] = \"1\"/g' /usr/lib/lua/luci/dispatcher.lua
 
-rm -rf /tmp/luci-*
+echo 'hsts=0' > /root/.wgetrc
 
-[ -f /etc/init.d/https-dns-proxy ] && /etc/init.d/https-dns-proxy disable
+/etc/init.d/xl2tpd stop
+/etc/init.d/xl2tpd disable
+/etc/init.d/mysqld stop
+/etc/init.d/mysqld disable
+/etc/init.d/tvheadend stop
+/etc/init.d/tvheadend disable
+/etc/init.d/dnsforwarder stop
+/etc/init.d/dnsforwarder disable
+/etc/init.d/vmtoolsd stop
+/etc/init.d/vmtoolsd disable
+#/etc/init.d/watchcat stop
+#/etc/init.d/watchcat disable
+/etc/init.d/dnscrypt-proxy stop
+/etc/init.d/dnscrypt-proxy disable
+/etc/init.d/igmpproxy stop
+/etc/init.d/igmpproxy disable
+/etc/init.d/redsocks2 stop
+/etc/init.d/redsocks2 disable
+/etc/init.d/banip stop
+/etc/init.d/banip disable
+/etc/init.d/udpxy enable
+/etc/init.d/udpxy stop
+/etc/init.d/wsdd2 stop
+/etc/init.d/v2ray_server stop
+/etc/init.d/samba4 stop
+/etc/init.d/samba stop
+rm -rf /tmp/luci-modulecache/
+rm -f /tmp/luci-indexcache
 
-sed -i '/S99opkg/d' /etc/crontabs/root
-echo "0 0 */3 * * sh /etc/rc.d/S99opkg >/dev/null 2>&1" >> /etc/crontabs/root
+#禁用ipv6.
+#echo net.ipv6.conf.all.disable_ipv6=1 >> /etc/sysctl.conf
+#echo net.ipv6.conf.default.disable_ipv6=1 >> /etc/sysctl.conf
+#echo net.ipv6.conf.lo.disable_ipv6 = 1 >> /etc/sysctl.conf
+#echo 1 > /proc/sys/net/ipv6/conf/all/disable_ipv6
 
-if [ ! -f /etc/config/placeholder ]; then
-
-	if [ $(uci get network.wan.ipv6) == 0 ]; then
-		uci set smartdns.@smartdns[0].ipv6_server='0'
-		uci commit smartdns
-
-			uci set dhcp.@dnsmasq[0].filter_aaaa='1'
-			uci commit dhcp
-	else
-		uci set smartdns.@smartdns[0].ipv6_server='1'
-		uci commit smartdns
-
-		uci set dhcp.@dnsmasq[0].filter_aaaa='0'
-		uci commit dhcp
-	fi
-
-  uci set luci.main.lang=auto
-  uci set luci.main.mediaurlbase=/luci-static/edge
-  uci commit luci
-  
-  uci set system.@system[0].timezone=CST-8
-  uci set system.@system[0].zonename=Asia/Shanghai
-  uci commit system
-
-  uci set fstab.@global[0].anon_mount=1
-  uci commit fstab
-  sed -i 's/root:.*/root:$1$tTPCBw1t$ldzfp37h5lSpO9VXk4uUE\/:18336:0:99999:7:::/g' /etc/shadow
-  uci set network.lan.ipaddr="10.0.0.1"
-  uci set network.wan.proto=pppoe
-  uci commit network
-
-  uci add_list shadowsocksr.@access_control[0].wan_fw_ips='1.1.1.1'
-  uci add_list shadowsocksr.@access_control[0].wan_fw_ips='1.0.0.1'
-  uci add_list shadowsocksr.@access_control[0].wan_fw_ips='8.8.8.8'
-  uci add_list shadowsocksr.@access_control[0].wan_fw_ips='8.8.4.4'
-  uci add_list shadowsocksr.@access_control[0].wan_fw_ips='9.9.9.9'
-  uci add_list shadowsocksr.@access_control[0].wan_fw_ips='9.9.9.10'
-  uci add_list shadowsocksr.@access_control[0].wan_fw_ips='149.112.112.10'
-  uci add_list shadowsocksr.@access_control[0].wan_fw_ips='149.112.112.112'
-  uci add_list shadowsocksr.@access_control[0].wan_fw_ips='146.112.41.2'
-  uci add_list shadowsocksr.@access_control[0].wan_fw_ips='104.16.248.249'
-  uci add_list shadowsocksr.@access_control[0].wan_fw_ips='104.16.249.249'
-  uci add_list shadowsocksr.@access_control[0].wan_bp_ips='210.0.255.250'
-  uci add_list shadowsocksr.@access_control[0].wan_bp_ips='168.95.1.1'
-  uci add_list shadowsocksr.@access_control[0].wan_bp_ips='101.101.101.101'
-  uci add_list shadowsocksr.@access_control[0].wan_bp_ips='210.17.9.228'
-  uci add_list shadowsocksr.@access_control[0].wan_bp_ips='203.198.7.66'
-  uci add_list shadowsocksr.@access_control[0].wan_bp_ips='124.156.138.74'
-  uci commit shadowsocksr
-
-  uci set network.@globals[0].packet_steering=1
-  uci commit network
-
-fi
-
-if [ -f /etc/config/jia ]; then
-  sed -i '/=\/tmp\/dnsmasq.ssr/d' /etc/init.d/shadowsocksr
-fi
-if [ ! -f /usr/bin/ssr-server ]; then
-  sed -i '/server-config/d' /usr/lib/lua/luci/controller/shadowsocksr.lua
-fi
-
-cp -R /www/cgi-bin/* /www/
-find /www -type d -exec chmod 755 {} \;
-chmod +x /www/luci
-
-sed -i "s/git-.*-\(.*\)/git-\1/g" /usr/lib/lua/luci/version.lua
+exit 0
 
