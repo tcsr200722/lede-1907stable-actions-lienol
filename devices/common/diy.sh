@@ -26,8 +26,6 @@ sed -i 's/"18.06 Lienol"/"openwrt-19.07 branch "/g' feeds/luci/luci.mk
 # 关闭禁止解析IPv6 DNS 记录
 sed -i '/option filter_aaaa 1/d' package/network/services/dnsmasq/files/dhcp.conf
 
-#选择编译内核。
-#sed -i 's/4.19/4.14/g' target/linux/x86/Makefile
 #修改网络连接数
 #sed -i 's/net.netfilter.nf_conntrack_max=65535/net.netfilter.nf_conntrack_max=105535/g' package/kernel/linux/files/sysctl-nf-conntrack.conf
 #添加自定义插件1。
@@ -53,6 +51,6 @@ cd -
 ./scripts/feeds update -a
 ./scripts/feeds install -a
 
-date=`date +%Y.%m.%d`
-sed -i "s/DISTRIB_DESCRIPTION.*/DISTRIB_DESCRIPTION='LedeWrt N%C From Lienol'/g" package/base-files/files/etc/openwrt_release
-sed -i "s/# REVISION:=x/REVISION:= $date/g" include/version.mk
+#date=`date +%Y.%m.%d`
+#sed -i "s/DISTRIB_DESCRIPTION.*/DISTRIB_DESCRIPTION='LedeWrt N%C From Lienol'/g" package/base-files/files/etc/openwrt_release
+#sed -i "s/# REVISION:=x/REVISION:= $date/g" include/version.mk
