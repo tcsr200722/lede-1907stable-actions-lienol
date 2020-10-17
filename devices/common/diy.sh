@@ -25,8 +25,7 @@ sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci/M
 sed -i 's/"18.06 Lienol"/"openwrt-19.07 branch "/g' feeds/luci/luci.mk
 # 关闭禁止解析IPv6 DNS 记录
 sed -i '/option filter_aaaa 1/d' package/network/services/dnsmasq/files/dhcp.conf
-#添加img编译时间前缀。
-sed -i 's/IMG_PREFIX:=/IMG_PREFIX:=$(shell date +%Y%m%d)-LEDE-1907-/g' include/image.mk
+
 #选择编译内核。
 #sed -i 's/4.19/4.14/g' target/linux/x86/Makefile
 #修改网络连接数
