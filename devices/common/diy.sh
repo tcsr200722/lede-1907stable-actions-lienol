@@ -22,7 +22,7 @@ sed -i "s/OpenWrt /LedeWrt N $(TZ=UTC-8 date "+%Y.%m.%d") @ OpenWrt From Lienol 
 # 修改 argon 为默认主题,可根据你喜欢的修改成其他的（不选择那些会自动改变为默认主题的主题才有效果）
 sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci/Makefile
 #添加luci版本。
-sed -i 's/"18.06 Lienol"/"openwrt-19.07 branch "/g' feeds/openwrt-luci/luci.mk
+#sed -i 's/"18.06 Lienol"/"openwrt-19.07 branch "/g' feeds/openwrt-luci/luci.mk
 # 关闭禁止解析IPv6 DNS 记录
 sed -i '/option filter_aaaa 1/d' package/network/services/dnsmasq/files/dhcp.conf
 
