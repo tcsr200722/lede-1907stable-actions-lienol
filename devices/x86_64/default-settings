@@ -1,13 +1,7 @@
+uci set luci.main.mediaurlbase=/luci-static/argon
+uci commit luci
 
-	uci set turboacc.config.sw_flow='0'
-	uci commit turboacc
-
-touch /etc/config/placeholder
-
-sed -i '$a src/gz openwrt_custom https://op.supes.top/packages/x64' /etc/opkg/customfeeds.conf
-
-#HW-RNG
-uci set system.@rngd[0].enabled="1"
-uci set system.@rngd[0].device="/dev/hwrng"
+uci set system.@system[0].hostname=LEDE-X64
+uci commit system
 
 exit 0
