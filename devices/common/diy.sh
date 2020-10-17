@@ -19,8 +19,6 @@ rm -Rf package/diy/luci-app-adguardhome
 sed -i 's/192.168.1.1/192.168.168.1/g' package/base-files/files/bin/config_generate
 # 内核显示增加自己个性名称（281677160 build $(TZ=UTC-8 date "+%Y.%m.%d") @ 这些为后期增加）
 sed -i "s/OpenWrt /LedeWrt N $(TZ=UTC-8 date "+%Y.%m.%d") @ OpenWrt From Lienol /g" package/default-settings/files/zzz-default-settings
-# 修改 argon 为默认主题,可根据你喜欢的修改成其他的（不选择那些会自动改变为默认主题的主题才有效果）
-sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/openwrt-luci/trunk/collections/luci/Makefile
 #添加luci版本。
 #sed -i 's/"18.06 Lienol"/"openwrt-19.07 branch "/g' feeds/openwrt-luci/luci.mk
 # 关闭禁止解析IPv6 DNS 记录
