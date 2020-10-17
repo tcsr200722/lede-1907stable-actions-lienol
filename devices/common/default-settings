@@ -1,10 +1,10 @@
 #!/bin/sh
 ln -sf /sbin/ip /usr/bin/ip
 uci set luci.main.lang=zh_cn
-uci set luci.main.mediaurlbase=/luci-static/argon
+#uci set luci.main.mediaurlbase=/luci-static/argon
 uci commit luci
 
-uci set system.@system[0].hostname=LEDE
+#uci set system.@system[0].hostname=LEDE
 uci set system.@system[0].timezone=CST-8
 uci set system.@system[0].zonename=Asia/Shanghai
 uci commit system
@@ -12,8 +12,8 @@ uci commit system
 uci set fstab.@global[0].anon_mount=1
 uci commit fstab
 
-uci set network.lan.ipaddr="192.168.168.1"
-uci set network.lan.netmask='255.255.255.0'
+#uci set network.lan.ipaddr="192.168.168.1"
+#uci set network.lan.netmask='255.255.255.0'
 uci set network.lan.dns='127.0.0.1'
 uci set network.lan.ifname="eth0"
 uci set network.wan.ifname="eth1"
