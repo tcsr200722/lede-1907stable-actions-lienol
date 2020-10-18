@@ -4,7 +4,7 @@ uci set luci.main.lang=zh_cn
 uci set luci.main.mediaurlbase=/luci-static/argon
 uci commit luci
 
-#uci set system.@system[0].hostname=LEDE
+uci set system.@system[0].hostname=LEDE
 uci set system.@system[0].timezone=CST-8
 uci set system.@system[0].zonename=Asia/Shanghai
 uci commit system
@@ -83,32 +83,15 @@ sed -i 's/cbi.submit\"] = true/cbi.submit\"] = \"1\"/g' /usr/lib/lua/luci/dispat
 
 echo 'hsts=0' > /root/.wgetrc
 
-/etc/init.d/xl2tpd stop
-/etc/init.d/xl2tpd disable
-/etc/init.d/mysqld stop
-/etc/init.d/mysqld disable
-/etc/init.d/tvheadend stop
-/etc/init.d/tvheadend disable
-/etc/init.d/dnsforwarder stop
-/etc/init.d/dnsforwarder disable
-/etc/init.d/vmtoolsd stop
-/etc/init.d/vmtoolsd disable
-#/etc/init.d/watchcat stop
-#/etc/init.d/watchcat disable
-/etc/init.d/dnscrypt-proxy stop
-/etc/init.d/dnscrypt-proxy disable
-/etc/init.d/igmpproxy stop
-/etc/init.d/igmpproxy disable
-/etc/init.d/redsocks2 stop
-/etc/init.d/redsocks2 disable
-/etc/init.d/banip stop
-/etc/init.d/banip disable
-/etc/init.d/udpxy enable
-/etc/init.d/udpxy stop
-/etc/init.d/wsdd2 stop
-/etc/init.d/v2ray_server stop
-/etc/init.d/samba4 stop
-/etc/init.d/samba stop
+
+/etc/init.d/php7-fastcgi disable 2>/dev/null
+/etc/init.d/php7-fpm disable 2>/dev/null
+/etc/init.d/softethervpnbridge disable 2>/dev/null
+/etc/init.d/softethervpnserver disable 2>/dev/null
+/etc/init.d/softethervpnclient disable 2>/dev/null
+/etc/init.d/haproxy disable 2>/dev/null
+/etc/init.d/kcptun disable 2>/dev/null
+
 rm -rf /tmp/luci-modulecache/
 rm -f /tmp/luci-indexcache
 
