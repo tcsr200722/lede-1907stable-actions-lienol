@@ -1,6 +1,6 @@
 #!/bin/bash
 # 修改主机名字
-sed -i '/uci commit system/i\uci set system.@system[0].hostname='Lede-X64'' package/default-settings/files/zzz-default-settings
+sed -i 's/hostname='OpenWrt'/hostname='LEDE-X64'/g' package/base-files/files/bin/config_generate
 #添加img编译时间前缀。
 sed -i 's/IMG_PREFIX:=/IMG_PREFIX:=$(shell date +%Y%m%d)-LEDE-1907-x64-/g' include/image.mk
 # 修改内核版本
