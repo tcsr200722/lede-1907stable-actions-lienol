@@ -198,9 +198,9 @@ jobs:
     - name: Organize files
       id: organize
       run: |
-                rm -rf ./firmware/
+        rm -rf ./firmware/
         mkdir -p ./firmware/ 
-		find openwrt/bin/targets/*/*  -name "*combined*" | xargs -i mv -f {} ./firmware/
+        find openwrt/bin/targets/*/*  -name "*combined*" | xargs -i mv -f {} ./firmware/
         find openwrt/bin/targets/*/*  -name "*sysupgrade*" | xargs -i mv -f {} ./firmware/
         find openwrt/bin/targets/*/*  -name "*armvirt-64-default-rootfs*" | xargs -i mv -f {} ./firmware/
         find openwrt/bin/targets/*/*  -name "sha256sums" | xargs -i mv -f {} ./firmware/
