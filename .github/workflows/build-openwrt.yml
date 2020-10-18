@@ -274,7 +274,7 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.REPO_TOKEN }}
       with:
         files: "${{ env.FIRMWARE }}/*"
-        name: ${{ env.date2 }} ${{matrix.target}} ${{ env.EMOJI }}
+        name: ${{ env.date2 }}-LEDE-${{matrix.target}} ${{ env.EMOJI }}
         tag_name: ${{ env.date }}_${{matrix.target}}
         body_path: release.txt
 
@@ -283,7 +283,7 @@ jobs:
       continue-on-error: true
       if: env.UPLOAD_FIRMWARE_FOR_ARTIFACT == 'true'
       with:
-        name: ${{ env.date3 }} ${{matrix.target}}
+        name: ${{ env.date3 }} -LEDE-${{matrix.target}}
         path: ${{ env.FIRMWARE }}
         
    # - name: WeChat notification
