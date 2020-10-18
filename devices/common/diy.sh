@@ -38,6 +38,8 @@ git clone https://github.com/tty228/luci-app-serverchan.git package/diy/luci-app
 #git clone https://github.com/fw876/helloworld.git package/diy/luci-app-ssr-plus
 git clone https://github.com/siwind/luci-app-ttyd.git package/diy/luci-app-ttyd
 #git clone https://github.com/docker/docker-ce.git package/diy/luci-app-docker-ce
+git clone https://github.com/jerrykuku/node-request.git package/diy/node-request  #京东签到依赖
+git clone https://github.com/jerrykuku/luci-app-jd-dailybonus.git package/diy/luci-app-jd-dailybonus  #京东签到
 cd package
 svn co https://github.com/xiaorouji/openwrt-package/trunk/lienol/luci-app-passwall
 
