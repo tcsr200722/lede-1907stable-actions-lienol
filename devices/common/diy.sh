@@ -17,10 +17,6 @@ rm -Rf package/lean/luci-app-ssr-plus
 rm -Rf package/diy/luci-app-adguardhome
 # 修改登陆地址
 sed -i 's/192.168.1.1/192.168.168.1/g' package/base-files/files/bin/config_generate
-# 内核显示增加自己个性名称（281677160 build $(TZ=UTC-8 date "+%Y.%m.%d") @ 这些为后期增加）
-sed -i "s/OpenWrt /LedeWrt N $(TZ=UTC-8 date "+%Y.%m.%d") @ OpenWrt From Lienol /g" package/default-settings/files/zzz-default-settings
-#添加luci版本。
-#sed -i 's/"18.06 Lienol"/"openwrt-19.07 branch "/g' feeds/openwrt-luci/luci.mk
 # 关闭禁止解析IPv6 DNS 记录
 sed -i '/option filter_aaaa 1/d' package/network/services/dnsmasq/files/dhcp.conf
 
@@ -49,6 +45,7 @@ cd -
 ./scripts/feeds update -a
 ./scripts/feeds install -a
 
-#date=`date +%Y.%m.%d`
-#sed -i "s/DISTRIB_DESCRIPTION.*/DISTRIB_DESCRIPTION='LedeWrt N%C From Lienol'/g" package/base-files/files/etc/openwrt_release
-#sed -i "s/# REVISION:=x/REVISION:= $date/g" include/version.mk
+# 内核显示增加自己个性名称
+date=`date +%Y.%m.%d`
+sed -i "s/DISTRIB_DESCRIPTION.*/DISTRIB_DESCRIPTION='LedeWrt N%C From Lienol'/g" package/base-files/files/etc/openwrt_release
+sed -i "s/# REVISION:=x/REVISION:= $date/g" include/version.mk
