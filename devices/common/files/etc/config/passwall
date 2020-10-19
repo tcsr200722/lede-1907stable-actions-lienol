@@ -12,7 +12,6 @@ config global
 	option up_trust_pdnsd_dns 'tcp'
 	option udp_node1 'tcp_'
 	option tcp_node1 'd5464cbd6d6846f98d85bf9f4007630c'
-	option use_chnlist '1'
 	option udp_proxy_mode 'returnhome'
 
 config global_haproxy
