@@ -29,6 +29,8 @@ sed -i '/resolvfile=/d' package/diy/luci-app-adguardhome/root/etc/init.d/AdGuard
 sed -i 's/DEPENDS:=/DEPENDS:=+AdGuardHome /g' package/diy/luci-app-adguardhome/Makefile
 #argon主题
 git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git  package/diy/luci-theme-argon
+#argon主题
+git clone -b 18.06 https://github.com/garypang13/luci-theme-edge.git  package/diy/luci-theme-edge
 
 git clone https://github.com/ledewrt/luci-app-eqos.git  package/diy/luci-app-eqos
 git clone https://github.com/jefferymvp/luci-app-koolproxyR.git  package/diy/luci-app-koolproxyR
