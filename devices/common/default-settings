@@ -43,8 +43,8 @@ sed -i 's/\"network\"/\"services\"/g' /usr/lib/lua/luci/controller/dnspod.lua
 #sed -i 's/\"services\"/\"QOS\"/g' /usr/lib/lua/luci/controller/qosv4.lua
 sed -i 's/\"network\"/\"control\"/g' /usr/lib/lua/luci/controller/eqos.lua
 #sed -i 's/\"network\"/\"QOS\"/g' /usr/lib/lua/luci/controller/qos.lua
-#sed -i 's/\"network\"/\"QOS\"/g' /usr/lib/lua/luci/controller/sqm.lua
-#sed -i 's/\"services\"/\"QOS\"/g' /usr/lib/lua/luci/controller/nft-qos.lua
+sed -i 's/\"network\"/\"QOS\"/g' /usr/lib/lua/luci/controller/sqm.lua
+sed -i 's/\"services\"/\"QOS\"/g' /usr/lib/lua/luci/controller/nft-qos.lua
 sed -i 's/\"services\"/\"vpn\"/g' /usr/lib/lua/luci/controller/softethervpn5.lua
 sed -i 's/\"network\"/\"control\"/g' /usr/lib/lua/luci/controller/appfilter.lua
 sed -i 's/\"services\"/\"control\"/g' /usr/lib/lua/luci/controller/wol.lua
