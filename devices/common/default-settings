@@ -1,10 +1,10 @@
 #!/bin/sh
 ln -sf /sbin/ip /usr/bin/ip
 uci set luci.main.lang=zh_cn
-uci set luci.main.mediaurlbase=/luci-static/argon
+#uci set luci.main.mediaurlbase=/luci-static/argon
 uci commit luci
 
-uci set system.@system[0].hostname=LEDE
+#uci set system.@system[0].hostname=LEDE
 uci set system.@system[0].timezone=CST-8
 uci set system.@system[0].zonename=Asia/Shanghai
 uci commit system
