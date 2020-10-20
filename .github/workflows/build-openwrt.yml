@@ -383,7 +383,7 @@ jobs:
       continue-on-error: true
       if: env.UPLOAD_FIRMWARE_FOR_ARTIFACT == 'true'
       with:
-        name: ${{ env.date3 }} -LEDE-${{matrix.target}}
+        name: ${{ env.date3 }} -LEDE-1907-${{matrix.target}}
         path: ${{ env.FIRMWARE }}
         
    # - name: WeChat notification
