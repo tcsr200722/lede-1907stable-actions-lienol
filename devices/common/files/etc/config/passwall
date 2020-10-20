@@ -1,7 +1,7 @@
 config global
 	option use_tcp_node_resolve_dns '1'
 	option enabled '1'
-	option dns_forward '127.0.0.1:6063'
+	option dns_forward '127.0.0.1:7053'
 	option localhost_tcp_proxy_mode 'gfwlist'
 	option localhost_udp_proxy_mode 'gfwlist'
 	option tcp_proxy_mode 'chnroute'
