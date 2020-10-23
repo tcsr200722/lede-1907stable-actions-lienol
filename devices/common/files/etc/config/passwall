@@ -1,3 +1,4 @@
+
 config global
 	option use_tcp_node_resolve_dns '1'
 	option localhost_tcp_proxy_mode 'gfwlist'
@@ -823,4 +824,3 @@ config nodes 'dfa17e20fa58403c851e0f664fc5d5c5'
 	option protocol_param 't.me/SSRSUB'
 	option timeout '60'
 	option add_mode '仅供留学查询学习资料，勿黄勿乱，否则自行承担法律责任'
-
