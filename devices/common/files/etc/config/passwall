@@ -9,9 +9,9 @@ config global
 	option up_trust_pdnsd_dns 'tcp'
 	option udp_node1 'tcp_'
 	option tcp_node1 'd5464cbd6d6846f98d85bf9f4007630c'
-	option up_china_dns '127.0.0.1:5333'
+	option up_china_dns '127.0.0.1:5335'
 	option udp_proxy_mode 'chnroute'
-	option dns_forward '127.0.0.1:5333'
+	option dns_forward '127.0.0.1:5335'
 	option enabled '0'
 
 config global_haproxy
