@@ -149,7 +149,7 @@ config server
 	option type 'udp'
 	option server_group 'china'
 	option enabled '1'
-	option ip '2400:3200::1 2400:3200:baba::1'
+	option ip '2400:3200::1'
 
 config server
 	option name '百度ipv6 dns'
