@@ -79,7 +79,7 @@ filters:
   url: https://cdn.jsdelivr.net/gh/banbendalao/ADgk@latest/ADgk.txt
   name: 国内手机
   id: 1584462286
-  - enabled: true
+- enabled: true
   url: https://gitee.com/xinggsf/Adblock-Rule/raw/master/mv.txt
   name: 乘风视频
   id: 1603860852
