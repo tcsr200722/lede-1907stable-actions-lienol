@@ -13,7 +13,7 @@ config dnsmasq
 	option localservice '1'
 	option cachesize '0'
 	option port '53'
-	list server '127.0.0.1#5335'
+	list server '127.0.0.1#54'
 	option resolvfile '/tmp/resolv.conf.auto'
 
 config dhcp 'lan'
