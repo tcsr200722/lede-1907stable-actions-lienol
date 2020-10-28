@@ -27,7 +27,6 @@ dns:
   refuse_any: false
   upstream_dns:
   - 127.0.0.1:6053
-  - 127.0.0.1.7053
   bootstrap_dns:
   - 8.8.8.8
   - 119.29.29.29
@@ -72,6 +71,38 @@ tls:
   certificate_path: ""
   private_key_path: ""
 filters:
+- enabled: true
+  url: https://gitee.com/halflife/list/raw/master/ad.txt
+  name: HalfLife整合规则
+  id: 1603860858
+- enabled: true
+  url: https://cdn.jsdelivr.net/gh/banbendalao/ADgk@latest/ADgk.txt
+  name: 国内手机
+  id: 1584462286
+  - enabled: true
+  url: https://gitee.com/xinggsf/Adblock-Rule/raw/master/mv.txt
+  name: 乘风视频
+  id: 1603860852
+- enabled: true
+  url: https://gitee.com/xinggsf/Adblock-Rule/raw/master/rule.txt
+  name: 乘风广告
+  id: 1603860853
+- enabled: false
+  url: https://easylist-downloads.adblockplus.org/easylistchina.txt
+  name: EasyList China
+  id: 1603860854
+- enabled: false
+  url: https://easylist-downloads.adblockplus.org/easylist.txt
+  name: EasyList
+  id: 1603860855
+- enabled: false
+  url: https://easylist-downloads.adblockplus.org/easyprivacy.txt
+  name: EasyPrivacy
+  id: 1603860856
+- enabled: false
+  url: https://easylist-downloads.adblockplus.org/easylist-cookie.txt
+  name: EasyList Cookie List
+  id: 1603860857
 - enabled: false
   url: https://adguardteam.github.io/AdGuardSDNSFilter/Filters/filter.txt
   name: AdGuard DNS filter
@@ -80,7 +111,7 @@ filters:
   url: https://block.energized.pro/blu/formats/filter
   name: Energized Protection Blu
   id: 1590467081
-- enabled: true
+- enabled: false
   url: https://anti-ad.net/easylist.txt
   name: anti-AD
   id: 1580820695
@@ -88,10 +119,6 @@ filters:
   url: http://uujian.cn/browser/txt/metalist.txt
   name: 荟萃
   id: 1575015275
-- enabled: true
-  url: https://gitee.com/lhzgl6587/hosts/raw/master/myruler
-  name: 国内手机
-  id: 1584462286
 - enabled: false
   url: https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling/hosts
   name: StevenBlack fakenews gambling
