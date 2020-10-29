@@ -1,45 +1,29 @@
+
 config smartdns
-	option port '6053'
 	option prefetch_domain '1'
-	option cache_size '5000'
-	option rr_ttl_min '300'
-	option rr_ttl_max '3600'
-	option coredump '0'
-	option server_name 'china'
-	option seconddns_enabled '1'
-	option seconddns_server_group 'world'
-	option force_aaaa_soa '1'
-	option ipv6_server '0'
-	option enabled '1'
-	option seconddns_port '7913'
 	option serve_expired '1'
-	option tcp_server '1'
-	option seconddns_no_speed_check '1'
-	option seconddns_no_cache '1'
-	option dualstack_ip_selection '0'
+	option coredump '0'
+	option port '6053'
+	option seconddns_port '7913'
+	option seconddns_enabled '1'
 	option seconddns_no_rule_addr '0'
 	option seconddns_no_rule_nameserver '0'
 	option seconddns_no_rule_ipset '0'
-	option seconddns_no_dualstack_selection '0'
-	option seconddns_tcp_server '1'
 	option seconddns_no_rule_soa '0'
+	option enabled '1'
+	option seconddns_server_group 'world'
+	option force_aaaa_soa '0'
+	option server_name 'china'
+	option tcp_server '1'
+	option seconddns_tcp_server '1'
+	option seconddns_no_speed_check '1'
+	option seconddns_no_dualstack_selection '1'
+	option seconddns_no_cache '1'
+	option rr_ttl_min '300'
+	option ipv6_server '1'
+	option dualstack_ip_selection '1'
+	option cache_size '5120'
 	option redirect 'none'
-
-config server
-	option name '114 DNS'
-	option ip '114.114.114.114'
-	option blacklist_ip '1'
-	option server_group 'china'
-	option enabled '1'
-	option type 'udp'
-
-config server
-	option name '阿里 AliDNS'
-	option type 'udp'
-	option ip '223.5.5.5'
-	option blacklist_ip '1'
-	option server_group 'china'
-	option enabled '1'
 
 config server
 	option name '百度 BaiduDNS'
@@ -48,6 +32,7 @@ config server
 	option ip '180.76.76.76'
 	option blacklist_ip '1'
 	option server_group 'china'
+	option port '53'
 
 config server
 	option name 'DNSPod DNS+'
@@ -56,6 +41,7 @@ config server
 	option blacklist_ip '1'
 	option server_group 'china'
 	option enabled '1'
+	option port '53'
 
 config server
 	option name 'V2EX DNS'
@@ -64,6 +50,7 @@ config server
 	option blacklist_ip '1'
 	option server_group 'china'
 	option enabled '1'
+	option port '53'
 
 config server
 	option name 'CNNIC SDNS'
@@ -72,6 +59,7 @@ config server
 	option blacklist_ip '1'
 	option server_group 'china'
 	option enabled '1'
+	option port '53'
 
 config server
 	option name 'oneDNS'
@@ -80,6 +68,7 @@ config server
 	option blacklist_ip '1'
 	option server_group 'china'
 	option enabled '1'
+	option port '53'
 
 config server
 	option name 'DNS 派电信/移动/铁通'
@@ -88,6 +77,7 @@ config server
 	option blacklist_ip '1'
 	option server_group 'china'
 	option enabled '1'
+	option port '53'
 
 config server
 	option name 'DNS 派 联通'
@@ -96,6 +86,7 @@ config server
 	option blacklist_ip '1'
 	option server_group 'china'
 	option enabled '1'
+	option port '53'
 
 config server
 	option name '新加坡Linode'
@@ -143,6 +134,7 @@ config server
 	option server_group 'china'
 	option enabled '1'
 	option ip '2400:da00::6666'
+	option port '53'
 
 config server
 	option name '阿里ipv6 dns'
@@ -150,6 +142,7 @@ config server
 	option server_group 'china'
 	option enabled '1'
 	option ip '2400:3200::1'
+	option port '53'
 
 config server
 	option name '天地互连 ipv6 dns'
@@ -157,6 +150,7 @@ config server
 	option server_group 'china'
 	option enabled '1'
 	option ip '240C::6666'
+	option port '53'
 
 config server
 	option name '谷歌 vip6 dns'
