@@ -80,26 +80,10 @@ filters:
   name: 国内手机
   id: 1584462286
 - enabled: true
-  url: https://gitee.com/xinggsf/Adblock-Rule/raw/master/mv.txt
-  name: 乘风视频
-  id: 1603860852
-- enabled: true
-  url: https://gitee.com/xinggsf/Adblock-Rule/raw/master/rule.txt
-  name: 乘风广告
-  id: 1603860853
-- enabled: false
-  url: https://easylist-downloads.adblockplus.org/easylistchina.txt
-  name: EasyList China
-  id: 1603860854
-- enabled: false
-  url: https://easylist-downloads.adblockplus.org/easylist.txt
-  name: EasyList
-  id: 1603860855
-- enabled: false
   url: https://easylist-downloads.adblockplus.org/easyprivacy.txt
   name: EasyPrivacy
   id: 1603860856
-- enabled: false
+- enabled: true
   url: https://easylist-downloads.adblockplus.org/easylist-cookie.txt
   name: EasyList Cookie List
   id: 1603860857
