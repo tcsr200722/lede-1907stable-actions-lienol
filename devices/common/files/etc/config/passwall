@@ -7,11 +7,11 @@ config global
 	option udp_proxy_mode 'chnroute'
 	option localhost_tcp_proxy_mode 'gfwlist'
 	option localhost_udp_proxy_mode 'gfwlist'
-	option enabled '1'
 	option up_trust_pdnsd_dns 'tcp'
 	option tcp_node1 'nil'
 	option up_china_dns '127.0.0.1:6053'
 	option dns_forward '127.0.0.1:7913'
+	option enabled '0'
 
 config global_haproxy
 	option balancing_enable '0'
@@ -103,3 +103,4 @@ config shunt_rules 'TVB'
 	option remarks 'TVB'
 	option domain_list 'tvb.com
 mytvsuper.com'
+
