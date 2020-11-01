@@ -40,7 +40,7 @@ git clone https://github.com/siwind/luci-app-ttyd.git package/diy/luci-app-ttyd
 #git clone https://github.com/docker/docker-ce.git package/diy/luci-app-docker-ce
 git clone https://github.com/jerrykuku/node-request.git package/diy/node-request  #京东签到依赖
 git clone https://github.com/jerrykuku/luci-app-jd-dailybonus.git package/diy/luci-app-jd-dailybonus  #京东签到
-svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/luci-app-nft-qos package/diy/luci-app-nft-qos
+#svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/luci-app-nft-qos package/diy/luci-app-nft-qos
 
 cd package
 svn co https://github.com/xiaorouji/openwrt-package/trunk/lienol/luci-app-passwall
