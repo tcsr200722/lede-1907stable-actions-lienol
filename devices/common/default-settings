@@ -19,6 +19,9 @@ uci set network.lan.ifname="eth0"
 uci set network.wan.ifname="eth1"
 uci commit network
 
+uci set upnpd.config.external_iface="wan"
+uci commit upnpd
+
 rm -f /usr/lib/lua/luci/view/admin_status/index/mwan.htm
 rm -f /usr/lib/lua/luci/view/admin_status/index/upnp.htm
 rm -f /usr/lib/lua/luci/view/admin_status/index/ddns.htm
