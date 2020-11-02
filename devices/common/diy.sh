@@ -36,7 +36,7 @@ git clone https://github.com/cnzd/luci-app-koolproxyR package/luci-app-koolproxy
 git clone https://github.com/tty228/luci-app-serverchan.git package/diy/luci-app-serverchan
 #git clone https://github.com/destan19/OpenAppFilter.git package/diy/OpenAppFilter
 #git clone https://github.com/fw876/helloworld.git package/diy/luci-app-ssr-plus
-git clone https://github.com/siwind/luci-app-ttyd.git package/diy/luci-app-ttyd
+svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/luci-app-ttyd package/diy/luci-app-ttyd
 #git clone https://github.com/docker/docker-ce.git package/diy/luci-app-docker-ce
 git clone https://github.com/jerrykuku/node-request.git package/diy/node-request  #京东签到依赖
 git clone https://github.com/jerrykuku/luci-app-jd-dailybonus.git package/diy/luci-app-jd-dailybonus  #京东签到
