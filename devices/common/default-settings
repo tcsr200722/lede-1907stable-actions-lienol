@@ -1,5 +1,6 @@
 #!/bin/sh
-ln -sf /sbin/ip /usr/bin/ip
+touch /etc/crontabs/root
+
 uci set luci.main.lang=zh_cn
 #uci set luci.main.mediaurlbase=/luci-static/argon
 uci commit luci
@@ -11,6 +12,8 @@ uci commit system
 
 uci set fstab.@global[0].anon_mount=1
 uci commit fstab
+
+ln -sf /sbin/ip /usr/bin/ip
 
 uci set network.lan.ipaddr="192.168.168.1"
 uci set network.lan.netmask='255.255.255.0'
@@ -26,6 +29,8 @@ rm -f /usr/lib/lua/luci/view/admin_status/index/mwan.htm
 rm -f /usr/lib/lua/luci/view/admin_status/index/upnp.htm
 rm -f /usr/lib/lua/luci/view/admin_status/index/ddns.htm
 rm -f /usr/lib/lua/luci/view/admin_status/index/minidlna.htm
+
+
 sed -i 's/\"services\"/\"nas\"/g' /usr/lib/lua/luci/controller/aria2.lua
 sed -i 's/services/nas/g' /usr/lib/lua/luci/view/aria2/overview_status.htm
 sed -i 's/\"services\"/\"nas\"/g' /usr/lib/lua/luci/controller/hd_idle.lua
@@ -72,22 +77,18 @@ echo "iptables -t nat -A PREROUTING -p tcp --dport 53 -j REDIRECT --to-ports 53"
 
 sed -i '/option disabled/d' /etc/config/wireless
 sed -i '/set wireless.radio${devidx}.disabled/d' /lib/wifi/mac80211.sh
+wifi up
 
 #sed -i '/DISTRIB_REVISION/d' /etc/openwrt_release
 #echo "DISTRIB_REVISION='N20.6.29 From Lienol'" >> /etc/openwrt_release
 #sed -i '/DISTRIB_DESCRIPTION/d' /etc/openwrt_release
 #echo "DISTRIB_DESCRIPTION='OpenWrt '" >> /etc/openwrt_release
 
-sed -i '/+kmod-crypto-arc4/d' package/lean/ksmbd/Makefile
-
 sed -i '/log-facility/d' /etc/dnsmasq.conf
 echo "log-facility=/dev/null" >> /etc/dnsmasq.conf
 
-sed -i 's/cbi.submit\"] = true/cbi.submit\"] = \"1\"/g' /usr/lib/lua/luci/dispatcher.lua
 
-echo 'hsts=0' > /root/.wgetrc
-
-
+#禁用某些可能会自启动且用不上的依赖包服务
 /etc/init.d/php7-fastcgi disable 2>/dev/null
 /etc/init.d/php7-fpm disable 2>/dev/null
 /etc/init.d/softethervpnbridge disable 2>/dev/null
@@ -96,16 +97,13 @@ echo 'hsts=0' > /root/.wgetrc
 /etc/init.d/haproxy disable 2>/dev/null
 /etc/init.d/kcptun disable 2>/dev/null
 
-rm -rf /tmp/luci-modulecache/
-rm -f /tmp/luci-indexcache
+rm -rf /tmp/luci-*cache
 
 #禁用ipv6.
 #echo net.ipv6.conf.all.disable_ipv6=1 >> /etc/sysctl.conf
 #echo net.ipv6.conf.default.disable_ipv6=1 >> /etc/sysctl.conf
 #echo net.ipv6.conf.lo.disable_ipv6 = 1 >> /etc/sysctl.conf
 #echo 1 > /proc/sys/net/ipv6/conf/all/disable_ipv6
-
-rm -rf /tmp/luci-*cache
 
 exit 0
 
