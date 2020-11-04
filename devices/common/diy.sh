@@ -39,7 +39,7 @@ git clone https://github.com/tty228/luci-app-serverchan.git package/diy/luci-app
 #git clone https://github.com/docker/docker-ce.git package/diy/luci-app-docker-ce
 git clone https://github.com/jerrykuku/node-request.git package/diy/node-request  #京东签到依赖
 git clone https://github.com/jerrykuku/luci-app-jd-dailybonus.git package/diy/luci-app-jd-dailybonus  #京东签到
-#svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/luci-app-nft-qos package/diy/luci-app-nft-qos
+svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/luci-app-nft-qos package/diy/luci-app-nft-qos
 
 cd package
 svn co https://github.com/xiaorouji/openwrt-package/trunk/lienol/luci-app-passwall
@@ -50,5 +50,5 @@ cd -
 
 # 内核显示增加自己个性名称
 date=`date +%m.%d.%Y`
-sed -i "s/DISTRIB_DESCRIPTION.*/DISTRIB_DESCRIPTION='LedeWrt 19.07 N%C From Lienol'/g" package/base-files/files/etc/openwrt_release
+sed -i "s/DISTRIB_DESCRIPTION.*/DISTRIB_DESCRIPTION='LedeWrt N%C From Lienol'/g" package/base-files/files/etc/openwrt_release
 sed -i "s/# REVISION:=x/REVISION:= $date/g" include/version.mk
