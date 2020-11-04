@@ -1,0 +1,17 @@
+
+config global
+	option time_update '4'
+	option koolproxy_port '0'
+	option startup_delay '5'
+	option koolproxy_ipv6 '0'
+	option enabled '0'
+	option koolproxy_rules 'easylistchina.txt fanboy.txt yhosts.txt kp.dat user.txt'
+	option koolproxy_mode '3'
+	option koolproxy_acl_default '1'
+
+config rss_rule
+	option load '1'
+	option file 'user.txt'
+	option name 'ANTI-AD'
+	option url 'https://anti-ad.net/easylist.txt'
+
