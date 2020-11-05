@@ -31,7 +31,6 @@ sed -i 's/DEPENDS:=/DEPENDS:=+AdGuardHome /g' package/diy/luci-app-adguardhome/M
 git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git  package/diy/luci-theme-argon
 
 git clone https://github.com/ledewrt/luci-app-eqos.git  package/diy/luci-app-eqos
-#git clone https://github.com/jefferymvp/luci-app-koolproxyR.git  package/luci-app-koolproxyR
 #git clone https://github.com/cnzd/luci-app-koolproxyR package/luci-app-koolproxyR
 git clone  https://github.com/Baozisoftware/luci-app-koolproxy.git package/luci-app-koolproxy
 git clone https://github.com/tty228/luci-app-serverchan.git package/diy/luci-app-serverchan
