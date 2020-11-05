@@ -1,0 +1,59 @@
+
+config default 'default'
+	option limit_enable '1'
+	option dynamic_cidr6 'AAAA:BBBB::1/64'
+	option dynamic_bw_down '100'
+	option limit_type 'dynamic'
+	option dynamic_bw_up '20'
+	option dynamic_cidr '192.168.168.0/24'
+	option priority_enable '1'
+	option priority_netdev 'wan'
+
+config priority
+	option protocol 'tcp'
+	option comment '?'
+	option priority '-400'
+	option service '5060,6060'
+
+config priority
+	option comment '?'
+	option priority '-400'
+	option service '5060,6060,27015:27018,27050,27060,27070,27080'
+	option protocol 'udp'
+
+config priority
+	option protocol 'tcp'
+	option comment '?'
+	option priority '-300'
+	option service '53,22,23,123,3389,8123'
+
+config priority
+	option comment '?'
+	option protocol 'udp'
+	option priority '-300'
+	option service '53'
+
+config priority
+	option protocol 'tcp'
+	option comment '?'
+	option priority '-225'
+	option service '80,443,1080,1863,8080,12000,14000'
+
+config priority
+	option comment '?'
+	option protocol 'udp'
+	option priority '-225'
+	option service '4000:4030,8000:8001'
+
+config priority
+	option protocol 'tcp'
+	option comment '?'
+	option priority '-200'
+	option service '20,21,25,1024:65535'
+
+config priority
+	option comment '?'
+	option protocol 'udp'
+	option priority '-200'
+	option service '1024:65535'
+
