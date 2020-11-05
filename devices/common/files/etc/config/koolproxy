@@ -13,4 +13,10 @@ config rss_rule
 	option load '1'
 	option name 'ANTI-AD'
 	option url 'https://anti-ad.net/easylist.txt'
+	
+config acl_rule
+	option ipaddr '192.168.168.177'
+	option mac 'C4:46:19:22:E3:F3'
+	option proxy_mode '2'
+	option remarks '选要滤https的客户端'
 
