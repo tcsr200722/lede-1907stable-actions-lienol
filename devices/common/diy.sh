@@ -40,11 +40,11 @@ git clone https://github.com/tty228/luci-app-serverchan.git package/diy/luci-app
 git clone https://github.com/jerrykuku/node-request.git package/diy/node-request  #京东签到依赖
 git clone https://github.com/jerrykuku/luci-app-jd-dailybonus.git package/diy/luci-app-jd-dailybonus  #京东签到
 svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/luci-app-nft-qos package/diy/luci-app-nft-qos
+git clone  https://github.com/siwind/luci-app-ttyd.git package/diy/luci-app-ttyd
 
-cd package
-svn co https://github.com/xiaorouji/openwrt-package/trunk/lienol/luci-app-passwall
-
-cd -
+#cd package
+#svn co https://github.com/xiaorouji/openwrt-package/trunk/lienol/luci-app-passwall
+#cd -
 ./scripts/feeds update -a
 ./scripts/feeds install -a
 
