@@ -38,8 +38,8 @@ git clone https://github.com/tty228/luci-app-serverchan.git package/diy/luci-app
 #git clone https://github.com/fw876/helloworld.git package/diy/luci-app-ssr-plus
 #git clone https://github.com/docker/docker-ce.git package/diy/luci-app-docker-ce
 git clone https://github.com/jerrykuku/luci-app-jd-dailybonus.git package/diy/luci-app-jd-dailybonus  #京东签到
-svn co https://github.com/ledewrt/nft-qos/trunk/package package/diy/nft-qos
-svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/luci-app-nft-qos package/diy/luci-app-nft-qos
+git clone  https://github.com/tohojo/sqm-scripts.git package/diy/sqm-scripts
+#svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/luci-app-nft-qos package/diy/luci-app-nft-qos
 git clone  https://github.com/siwind/luci-app-ttyd.git package/diy/luci-app-ttyd
 
 #cd package
