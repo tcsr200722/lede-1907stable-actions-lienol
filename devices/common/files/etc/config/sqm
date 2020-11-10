@@ -2,7 +2,7 @@
 config queue 'eth1'
 	option interface 'eth1'
 	option download '85000'
-	option upload '10000'
+	option upload '15000'
 	option qdisc_advanced '0'
 	option linklayer 'none'
 	option enabled '1'
