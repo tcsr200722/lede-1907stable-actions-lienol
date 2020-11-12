@@ -9,11 +9,6 @@ config global
 	option koolproxy_mode '3'
 	option koolproxy_acl_default '1'
 
-config rss_rule
-	option load '1'
-	option name 'anti-AD仅此规则即可'
-	option url 'https://anti-ad.net/easylist.txt'
-	
 config acl_rule
 	option ipaddr '192.168.168.110'
 	option proxy_mode '2'
