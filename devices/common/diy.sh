@@ -28,10 +28,10 @@ git clone https://github.com/rufengsuixing/luci-app-adguardhome.git  package/diy
 sed -i '/resolvfile=/d' package/diy/luci-app-adguardhome/root/etc/init.d/AdGuardHome
 sed -i 's/DEPENDS:=/DEPENDS:=+AdGuardHome /g' package/diy/luci-app-adguardhome/Makefile
 #argon主题
-git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git  package/diy/luci-theme-argon
+git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/diy/luci-theme-argon
 
-git clone https://github.com/ledewrt/luci-app-eqos.git  package/diy/luci-app-eqos
-git clone https://github.com/ledewrt/luci-app-ledeproxy.git  package/diy/luci-app-ledeproxy
+git clone https://github.com/ledewrt/luci-app-eqos.git package/diy/luci-app-eqos
+git clone https://github.com/ledewrt/luci-app-ledeproxy.git package/diy/luci-app-ledeproxy
 
 git clone https://github.com/tty228/luci-app-serverchan.git package/diy/luci-app-serverchan
 #git clone https://github.com/destan19/OpenAppFilter.git package/diy/OpenAppFilter
