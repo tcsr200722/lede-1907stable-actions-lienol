@@ -228,6 +228,7 @@ jobs:
         find openwrt/bin/packages/*/*  -name "*iptvhelper*" | xargs -i mv -f {} ./firmware/
         find openwrt/bin/packages/*/*  -name "*kcptun*" | xargs -i mv -f {} ./firmware/
         find openwrt/bin/packages/*/*  -name "*kodexplorer*" | xargs -i mv -f {} ./firmware/
+        find openwrt/bin/packages/*/*  -name "*ledeproxy*" | xargs -i mv -f {} ./firmware/
         find openwrt/bin/packages/*/*  -name "*minidlna*" | xargs -i mv -f {} ./firmware/
         find openwrt/bin/packages/*/*  -name "*forked-daapd*" | xargs -i mv -f {} ./firmware/
         find openwrt/bin/packages/*/*  -name "*music-remote-center*" | xargs -i mv -f {} ./firmware/
@@ -276,6 +277,7 @@ jobs:
         zip -r luci-app-iptvhelper.zip *iptvhelper* || true
         zip -r luci-app-kcptun.zip *kcptun* || true		
         zip -r luci-app-kodexplorer.zip *kodexplorer* || true		
+         zip -r luci-app-ledeproxy.zip *ledeproxy* || true		
         zip -r luci-app-minidlnazip *minidlna* || true
         zip -r luci-app-music-remote-center.zip *music-remote-center* || true	
         zip -r luci-app-orked-daapd.zip *forked-daapd* || true	
