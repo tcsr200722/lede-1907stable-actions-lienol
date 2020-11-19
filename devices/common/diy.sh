@@ -12,6 +12,7 @@
 #=================================================
 #添加固件版本描述。
 rm -Rf package/lean/luci-app-ssr-plus
+rm -Rf package/lean/rblibtorrent
 #rm -Rf package/diy/OpenAppFilter
 rm -Rf package/diy/luci-app-adguardhome
 # 修改登陆地址
