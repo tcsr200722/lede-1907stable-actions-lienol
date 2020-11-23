@@ -32,7 +32,7 @@ git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/diy
 
 git clone https://github.com/ledewrt/luci-app-eqos.git package/diy/luci-app-eqos
 #git clone https://github.com/ledewrt/luci-app-ledeproxy.git package/diy/luci-app-ledeproxy
-git clone https://github.com/ledewrt/luci-app-koolproxyR.git package/diy/luci-app-koolproxyR
+git clone https://github.com/ledewrt/luci-app-koolproxyR-1.git package/diy/luci-app-koolproxyR
 git clone https://github.com/tty228/luci-app-serverchan.git package/diy/luci-app-serverchan
 #git clone https://github.com/destan19/OpenAppFilter.git package/diy/OpenAppFilter
 #git clone https://github.com/fw876/helloworld.git package/diy/luci-app-ssr-plus
