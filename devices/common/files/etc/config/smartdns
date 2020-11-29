@@ -22,7 +22,7 @@ config smartdns
 	option dualstack_ip_selection '1'
 	option cache_size '5120'
 	option ipv6_server '1'
-	option redirect 'redirect'
+	option redirect 'dnsmasq-upstream'
 
 config server
 	option name '百度 BaiduDNS'
