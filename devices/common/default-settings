@@ -72,8 +72,10 @@ uci set dhcp.lan.ra_default='1'
 uci commit dhcp
 
 sed -i '/REDIRECT --to-ports 53/d' /etc/firewall.user
-echo "#iptables -t nat -A PREROUTING -p udp --dport 53 -j REDIRECT --to-ports 53" >> /etc/firewall.user
-echo "#iptables -t nat -A PREROUTING -p tcp --dport 53 -j REDIRECT --to-ports 53" >> /etc/firewall.user
+echo "iptables -t nat -A PREROUTING -p udp --dport 53 -j REDIRECT --to-ports 6053" >> /etc/firewall.user
+echo "iptables -t nat -A PREROUTING -p tcp --dport 53 -j REDIRECT --to-ports 6053" >> /etc/firewall.user
+echo "ip6tables -t nat -A PREROUTING -p udp --dport 53 -j REDIRECT --to-ports 6053" >> /etc/firewall.user
+echo "ip6tables -t nat -A PREROUTING -p tcp --dport 53 -j REDIRECT --to-ports 6053" >> /etc/firewall.user
 echo "#ip6tables -t nat -I PREROUTING -p tcp -j REDIRECT --to-ports 3000" >> /etc/firewall.user
 
 sed -i '/option disabled/d' /etc/config/wireless
