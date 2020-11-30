@@ -11,7 +11,7 @@ config global
 	option tcp_node1 'nil'
 	option up_china_dns '127.0.0.1:6053'
 	option dns_forward '127.0.0.1:7913'
-	option enabled '1'
+	option enabled '0'
 
 config global_haproxy
 	option balancing_enable '0'
